@@ -24,15 +24,17 @@ class UserFactory extends Factory
     {
         $sex = $this->faker->randomElement(['male', 'female']);
         $position = $this->faker->randomElement(['Admin', 'Employee']);
+        $last_name = $this->faker->lastName;
+        $password = $last_name."123";
 
         return [
             'first_name' => $this->faker->firstName,
             'middle_name' => $this->faker->lastName,
-            'last_name' => $this->faker->lastName,
+            'last_name' => $last_name,
             'position' => $position,
             'sex' => $sex,
             'email' => $this->faker->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => $password, // password
         ];
     }
 
