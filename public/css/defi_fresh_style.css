@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*Sidebar Section ------------------------------------------------------------------------------------------- */
+.body-wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar{
+	min-width: 220px;
+	max-width: 220px;
+	background-color: #143870;
+  float: left;
+  padding-top: 39px;
+  height: 100vh;
+
+}
+
+.sidebar-logo img{
+	width: 105px;
+	height: auto;
+  margin-bottom: 40px;
+}
+
+.sidebar-logo{
+  text-align: center;
+}
+
+.sidebar-name{
+  color: white;
+  font-size: larger;
+}
+
+.sidebar-name-container{
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.active{
+  background-color: #1e488b;
+}
+
+ul li{
+  height: 50px;
+  width: auto;
+  padding-left: 45px;
+}
+
+ul li:hover{
+  background-color: #1e488b;
+}
+
+ul a li span{
+  text-decoration: none;
+  color: #E2EBF5;
+  font-size: 20px;
+  position: relative;
+  top: 10px;
+}
+
+ul a:hover{
+  text-decoration: none;
+  color: #E2EBF5;
+}
+
+/*Navbar section----------------------------------------------------------------------------------------------------*/
+.navbar{
+  height: 60px;
+  background-color: white;
+  border-bottom: 2px solid #143870;
+  color: #143870;
+}
+
+.navbar-title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 13px;
+  margin-left: 13px;
+}
+
+.navbar-logout-btn{
+  background: white;
+  border: 2px solid #858585;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 3px;
+  width: 121px;
+  height: 33px;
+}
+
+.navbar-logout-btn:hover{
+  background: #cccccc;
+  border: 2px solid white;
+  width: 121px;
+  height: 33px;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 3px;
+  color: white;
+}
+
+/*Main Section----------------------------------------------------------------------------------------------------*/
+
+.content{
+  background-color: white;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+
+/*Login Page----------------------------------------------------------------------------------------------------*/
+.login-wrapper{
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: auto;
+  margin: auto;
+}
+
+.login-content{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: auto;
+  margin: auto;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.login-wrapper img{
+  width: auto;
+  height: 67px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.login-form{
+  align-content: center;
+  margin-top: 12%;
+  text-align: center;
+}
+
+form .login-input {
+  width: 300px;
+  height: 39px;
+  margin: 6px auto;
+  padding: 10px 30px;
+}
+
+form .login-button{
+  width: 300px;
+  height: 39px;
+  background-color: #143870;
+  border: 2px solid #FFFFFF;
+  margin: 6px auto;
+  color: white;
+  border-radius: 5px;
+}
+
+form .login-button:hover{
+  background-color: #1e488b;
+}
+
+
+
+/*Modals Section----------------------------------------------------------------------------------------------------*/
+.modal-header{
+  color: #858585;
+  height: 55px;
+}
+
+.modal-title{
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.form-group{
+  display: flex;
+}
+
+.modal-dialog{
+  max-width: 35%;
+}
+
+.form-group .row{
+  width: 90%;
+  margin: auto;
+}
+
+.form-group label{
+  float: right;
+  font-size: 18px;
+  color: #3B3B3B;
+}
+
+form{
+  padding-top: 20px;
+}
+
+.btn-primary{
+  background-color: #143870;
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: #1e488b;
+}
+
+.form-group input{
+  background-color: #E2EBF5;
+}
+
+.form-group select{
+  background-color: #E2EBF5;
+  width: 100%;
+  border: none;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.form-group h5{
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.modal-footer{
+ margin: auto;
+ color: white;
+}
+
+/* content-title-bar section--------------------------------------------------------------------- */
+.content-container{
+  height: 100%;
+  overflow-x: scroll;
+}
+
+.content-title-bar{
+  background-color: white;
+  min-height: 12%;
+  max-height: 12%;
+  display: inline-block;
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 0;
+  padding-top: 50px;
+}
+
+.content-title-bar span{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  color: #858585;
+}
+
+.add-new {
+  border:  #143870 2px solid;
+  background-color: white;
+  color:   #143870;
+  height: 40px;
+  width: 140px;
+  font-size: 16px;
+  font-weight: 600;
+  float: left;
+}
+
+
+.add-new:hover {
+  background:  #143870;
+  color: white;
+}
+
+/* table section--------------------------------------------------------------------- */
+table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.tables{
+  padding: 0 100px 50px 100px;
+}
+
+thead{
+  background-color: #143870;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+thead td{
+  padding: 8px;
+}
+
+tbody tr{
+  background-color: #F5F7FC;
+  color: #3B3B3B;
+  font-size: 15px;
+  text-align: center;
+}
+
+tbody td{
+padding: 8px;
+}
+
+#status{
+  padding: 5px;
+  background-color: inherit;
+  border: 2px solid  #858585;
+}
+
+/* cards section--------------------------------------------------------------------- */
+
+.card-container{
+  display: inline-block;
+  width: 100%;
+  padding-left: 90px;
+  padding-right: 100px;
+  margin-bottom: 5px;
+}
+
+.card{
+  width: 250px;
+  height: auto;
+  text-align: center;
+  margin-right: 26px;
+  margin-left: 26px;
+  margin-bottom: 20px;
+}
+
+.card-row{  
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link .card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 40px -10px rgba(0,0,0, 0.10);
+  color: #858585;
+}
+
+/* search bar section -----------------------------------------------------------------------------*/
+
+.textbox{
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  outline: 0;
+  width: 306px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-input-container{
+  float: right;
+  border: 2px solid  #858585;
+  height: 40px;
+  width: 310px;
+}
+
+.btn-delete {
+  color: #EF5D58;
+  border: 2px solid #EF5D58;
+  background-color: #F5F7FC;
+}
+
+.btn-delete:hover {
+  color: white;
+  background-color: #EF5D58;
+}
+
+.btn-edit {
+  color: #3B3B3B;
+  border: 2px solid #3B3B3B;
+  background-color: #F5F7FC;
+}
+
+.btn-edit:hover {
+  color: white;
+  background-color: #3B3B3B;
+}
+
+.attendance-select-container{
+  float: right;
+  height: 40px;
+  width: 150px;
+}
+
+.attendance-section{
+  padding: 0 10px;
+  height: 40px;
+  width: 150px;
+  border-color: #858585;
+}
