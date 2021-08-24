@@ -54,7 +54,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-md-12">
-                      <input type="number" class="form-control" v-model="supplier.supplier_contact_number" placeholder="Contact Number">
+                      <input type="text" class="form-control" v-model="supplier.supplier_contact_number" placeholder="Contact Number">
                     </div>
                   </div>
                 </div>
@@ -179,9 +179,9 @@
 
     createSuppliers(){
       var data = {
-          supplier_name: this.supplier.supplier_name,
-          supplier_contact_number: this.supplier.supplier_contact_number,
-          supplier_address: this.supplier.supplier_address,
+        supplier_name: this.supplier.supplier_name,
+        supplier_contact_number: this.supplier.supplier_contact_number,
+        supplier_address: this.supplier.supplier_address,
       };
       
       this.$store.dispatch('createSupplier', data);

@@ -16,7 +16,7 @@ class CreateSupplierRequest extends FormRequest
     {
         return [
             'supplier_name' => [
-                'required',
+              'required',
             ],
             'supplier_contact_number' => [
               'required',

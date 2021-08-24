@@ -42677,7 +42677,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "number",
+                            type: "text",
                             placeholder: "Contact Number"
                           },
                           domProps: {
