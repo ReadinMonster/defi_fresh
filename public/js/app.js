@@ -1978,9 +1978,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filteredBrands: function filteredBrands() {
       var _this = this;
 
-      return this.brands.filter(function (brand) {
-        return brand.brand_description.match(_this.brand_search);
-      });
+      var tempBrands = this.brands;
+
+      if (this.brands_search != '' && this.brands_search) {
+        tempBrands = tempBrands.filter(function (brand) {
+          return brand.brand_description.toUpperCase().includes(_this.brands_search.toUpperCase());
+        });
+      }
+
+      return tempBrands;
     }
   }),
   methods: {
@@ -2294,9 +2300,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filteredUsers: function filteredUsers() {
       var _this = this;
 
-      return this.users.filter(function (user) {
-        return user.last_name.match(_this.user_search);
-      });
+      var tempUsers = this.users;
+
+      if (this.user_search != '' && this.user_search) {
+        tempUsers = tempUsers.filter(function (user) {
+          return user.first_name.toUpperCase().includes(_this.user_search.toUpperCase()) || user.last_name.toUpperCase().includes(_this.user_search.toUpperCase()) || user.position.toUpperCase().includes(_this.user_search.toUpperCase());
+        });
+      }
+
+      return tempUsers;
     }
   }),
   methods: {
@@ -2557,9 +2569,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -2876,9 +2885,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     filteredSuppliers: function filteredSuppliers() {
       var _this = this;
 
-      return this.suppliers.filter(function (supplier) {
-        return supplier.supplier_name.match(_this.suppliers_search);
-      });
+      var tempSuppliers = this.suppliers;
+
+      if (this.suppliers_search != '' && this.suppliers_search) {
+        tempSuppliers = tempSuppliers.filter(function (supplier) {
+          return supplier.supplier_name.toUpperCase().includes(_this.suppliers_search.toUpperCase());
+        });
+      }
+
+      return tempSuppliers;
     }
   }),
   methods: {
@@ -3713,10 +3728,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (userAuthentication.password === this.input.password) {
           if (userAuthentication.position === "Admin") {
             this.loginAdmin();
-            this.$toast.success("Welcome " + userAuthentication.first_name);
+            this.$toast.success("Logged in as Admin");
           } else {
             this.loginEmployee();
-            this.$toast.success("Welcome " + userAuthentication.first_name);
+            this.$toast.success("Logged in as Employee");
           }
 
           var name = userAuthentication.first_name;
@@ -41439,13 +41454,47 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "container-content" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "content-title-bar" }, [
+        _c("input", {
+          staticClass: "btn add-new",
+          attrs: {
+            type: "button",
+            value: "Add Employee",
+            "data-toggle": "modal",
+            "data-target": "#createUser"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "search-input-container" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user_search,
+                expression: "user_search"
+              }
+            ],
+            staticClass: "textbox",
+            attrs: { type: "text", placeholder: "Search" },
+            domProps: { value: _vm.user_search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.user_search = $event.target.value
+              }
+            }
+          })
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "tables" }, [
         _c(
           "table",
           [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _vm._l(_vm.filteredUsers, function(user) {
               return _c("tbody", { key: user.id }, [
@@ -41517,7 +41566,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("form", [
@@ -41780,7 +41829,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("form", [
@@ -42046,9 +42095,9 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _vm._m(3),
               _vm._v(" "),
-              _vm._m(5),
+              _vm._m(4),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
                 _c(
@@ -42077,29 +42126,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-title-bar" }, [
-      _c("input", {
-        staticClass: "btn add-new",
-        attrs: {
-          type: "button",
-          value: "Add Employee",
-          "data-toggle": "modal",
-          "data-target": "#createUser"
-        }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "search-input-container" }, [
-        _c("input", {
-          staticClass: "textbox",
-          attrs: { type: "text", placeholder: "Search" }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -42364,31 +42390,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "tables-container" }, [
     _c("div", { staticClass: "content-title-bar" }, [
-      _c("span", { domProps: { textContent: _vm._s(_vm.category_title) } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "search-input-container" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.product_search,
-              expression: "product_search"
-            }
-          ],
-          staticClass: "textbox",
-          attrs: { type: "text", placeholder: "Search" },
-          domProps: { value: _vm.product_search },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.product_search = $event.target.value
-            }
-          }
-        })
-      ])
+      _c("span", { domProps: { textContent: _vm._s(_vm.category_title) } })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "tables" }, [

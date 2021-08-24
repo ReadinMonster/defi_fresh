@@ -126,11 +126,18 @@
       }),
 
       filteredBrands() {
-        return this.brands.filter(brand => {
-          return (
-            brand.brand_description.match(this.brand_search)
-          );
-        });
+        
+        let tempBrands = this.brands;
+
+        if (this.brands_search != '' && this.brands_search) {
+        tempBrands = tempBrands.filter((brand) => {
+          return brand.brand_description
+            .toUpperCase()
+            .includes(this.brands_search.toUpperCase())
+          })
+        }
+
+        return tempBrands;
       }
     },
 

@@ -4,7 +4,7 @@
       <div class="content-title-bar">
         <input type="button" value="Add Employee" class="btn add-new" data-toggle="modal" data-target="#createUser">
         <div class="search-input-container">
-          <input type="text" class="textbox" placeholder="Search">
+          <input type="text" class="textbox" v-model="user_search" placeholder="Search">
         </div>
       </div>
 
@@ -242,11 +242,24 @@
       }),
 
       filteredUsers() {
-        return this.users.filter(user => {
-          return (
-            user.last_name.match(this.user_search)
-          );
-        });
+      
+        let tempUsers = this.users;
+
+        if (this.user_search != '' && this.user_search) {
+        tempUsers = tempUsers.filter((user) => {
+          return user.first_name
+            .toUpperCase()
+            .includes(this.user_search.toUpperCase()) ||
+            user.last_name
+            .toUpperCase()
+            .includes(this.user_search.toUpperCase()) ||
+            user.position
+            .toUpperCase()
+            .includes(this.user_search.toUpperCase())
+          })
+        }
+
+        return tempUsers;
       }
     },
 

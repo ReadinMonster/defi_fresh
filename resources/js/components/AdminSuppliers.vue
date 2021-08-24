@@ -161,11 +161,17 @@
       }),
 
       filteredSuppliers() {
-        return this.suppliers.filter(supplier => {
-          return (
-            supplier.supplier_name.match(this.suppliers_search)
-          );
-        });
+        let tempSuppliers = this.suppliers;
+
+        if (this.suppliers_search != '' && this.suppliers_search) {
+        tempSuppliers = tempSuppliers.filter((supplier) => {
+          return supplier.supplier_name
+            .toUpperCase()
+            .includes(this.suppliers_search.toUpperCase())
+          })
+        }
+
+        return tempSuppliers;
       }
     },
 

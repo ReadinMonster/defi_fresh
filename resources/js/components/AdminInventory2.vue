@@ -3,9 +3,6 @@
 
     <div class="content-title-bar">
       <span v-text="category_title"></span>
-      <div class="search-input-container">
-        <input type="text" class="textbox" v-model="product_search" placeholder="Search" >
-      </div>
     </div>
 
     <div class="tables">

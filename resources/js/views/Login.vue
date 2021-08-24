@@ -59,11 +59,11 @@
           if(userAuthentication.password === this.input.password){
             if(userAuthentication.position === "Admin"){
               this.loginAdmin();
-              this.$toast.success("Welcome " + userAuthentication.first_name);
+              this.$toast.success("Logged in as Admin");
             }
             else{
               this.loginEmployee();
-              this.$toast.success("Welcome " + userAuthentication.first_name);
+              this.$toast.success("Logged in as Employee");
             }
               let name = userAuthentication.first_name;
               this.$store.commit('setUserName', name);
